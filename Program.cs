@@ -1,4 +1,4 @@
-﻿namespace BinaryTreeEx
+﻿namespace DSA
 {
 	internal class Program
 	{
