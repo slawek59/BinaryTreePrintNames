@@ -4,8 +4,8 @@
 	{
 		static void Main(string[] args)
 		{
-			int[] collectionArray = { 9, 7, 5, 3, 3, 1, 2, 4, 8, 6, 0, 10 };
-			List<int> collectionList = new() { 9, 7, 5, 3, 3, 1, 2, 4, 8, 6, 0, 10 };
+			int[] collectionArray = { 3, 1, 0, 4, 4, 5, 2 };
+			List<int> collectionList = new() { 3, 1, 0, 4, 4, 5, 2 };
 			List<string> collectionListOfStrings = new List<string>() { "cda", "adc", "abc" };
 
 			foreach (var item in collectionListOfStrings)
@@ -20,6 +20,8 @@
 				Console.WriteLine(item);
 			}
 
+			Console.WriteLine();
+
 			foreach (var item in collectionArray)
 			{
 				Console.WriteLine(item);
@@ -31,6 +33,8 @@
 			{
 				Console.WriteLine(item);
 			}
+
+			Console.WriteLine();
 
 			foreach (var item in collectionList)
 			{
@@ -60,22 +64,26 @@
 				return collection;
 			}
 
-			var swapCounter = 0;
-
-			do
+			for (int i = 0; i < collection.Count - 1; i++)
 			{
-				swapCounter = 0;
-				for (int i = 0; i < collection.Count - 1; i++)
-				{
+				var wasSwapped = false;
 
-					if (collection[i].CompareTo(collection[i + 1]) > 0)
+				for (int j = 0; j < collection.Count - 1 - i; j++)
+				{
+					if (collection[j].CompareTo(collection[j + 1]) > 0)
 					{
-						(collection[i], collection[i + 1]) = (collection[i + 1], collection[i]);
-						swapCounter++;
+						(collection[j], collection[j + 1]) = (collection[j + 1], collection[j]);
+
+						wasSwapped = true;
 					}
 				}
 
-			} while (swapCounter != 0);
+				if (!wasSwapped)
+				{
+					break;
+				}
+
+			}
 
 			return collection;
 		}
