@@ -5,7 +5,7 @@ VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeTraversal", "src\BinaryTreeTraversal\BinaryTreeTraversal.csproj", "{E867D747-0B75-79D5-E149-446DE6AA862D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "src\BubbleSort\BubbleSort.csproj", "{CDD462E3-DA9F-4F43-85D7-8082A3C17BE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "src\BubbleSort\Algorithms.csproj", "{CDD462E3-DA9F-4F43-85D7-8082A3C17BE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

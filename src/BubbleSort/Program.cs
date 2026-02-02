@@ -1,14 +1,24 @@
-﻿using System.Collections.Immutable;
-
-namespace BubbleSort
+﻿namespace Algorithms
 {
 	internal class Program
 	{
 		static void Main(string[] args)
 		{
-
 			int[] collectionArray = { 9, 7, 5, 3, 3, 1, 2, 4, 8, 6, 0, 10 };
 			List<int> collectionList = new() { 9, 7, 5, 3, 3, 1, 2, 4, 8, 6, 0, 10 };
+			List<string> collectionListOfStrings = new List<string>() { "cda", "adc", "abc" };
+
+			foreach (var item in collectionListOfStrings)
+			{
+				Console.WriteLine(item);
+			}
+
+			Console.WriteLine();
+
+			foreach (var item in collectionListOfStrings.BubbleSort())
+			{
+				Console.WriteLine(item);
+			}
 
 			foreach (var item in collectionArray)
 			{
@@ -17,7 +27,7 @@ namespace BubbleSort
 
 			Console.WriteLine();
 
-			foreach (var item in BubbleSort(collectionArray))
+			foreach (var item in collectionArray.BubbleSort())
 			{
 				Console.WriteLine(item);
 			}
@@ -29,17 +39,25 @@ namespace BubbleSort
 
 			Console.WriteLine();
 
-			foreach (var item in BubbleSort(collectionList))
+			foreach (var item in collectionList.BubbleSort())
 			{
 				Console.WriteLine(item);
 			}
 		}
+	}
 
-		static IEnumerable<T> BubbleSort<T>(IList<T> collection) where T : IComparable<T>
+	public static class IListExtensions
+	{
+		public static IList<T> BubbleSort<T>(this IList<T> collection) where T : IComparable<T>
 		{
 			if (collection is null)
 			{
-				throw new ArgumentException();
+				throw new ArgumentNullException(nameof(collection));
+			}
+
+			if (collection.Count < 2)
+			{
+				return collection;
 			}
 
 			var swapCounter = 0;
@@ -52,13 +70,10 @@ namespace BubbleSort
 
 					if (collection[i].CompareTo(collection[i + 1]) > 0)
 					{
-						var tmp = collection[i + 1];
-						collection[i + 1] = collection[i];
-						collection[i] = tmp;
+						(collection[i], collection[i + 1]) = (collection[i + 1], collection[i]);
 						swapCounter++;
 					}
 				}
-
 
 			} while (swapCounter != 0);
 
